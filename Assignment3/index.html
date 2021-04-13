@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+	
+  </head>
+<body>
+   <div  class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+	
+		<div class="row">
+			<div id="menu" ng-controller="NarrowItDownController as menu">
+				<div class="form-group" >
+				  <input type="text" placeholder="search term" ng-model="menu.searchItemDesc" class="form-control">
+				</div>
+				<div class="form-group narrow-button">
+				  <button class="btn btn-primary" ng-click="menu.getData()">Narrow It Down For Me!</button>
+				</div>
+				<br/>
+				<p></p>
+			<div class="resultContainer">
+				<h1 ng-show="menu.showMsg">Nothing&nbsp;Found!!!</h1>				
+					<found-items-list items="menu.menu_items" remove="menu.RemoveItem(index);"> </found-items-list>
+				</div>
+			</div>
+		</div>
+		
+		<!--  <div id="menu" ng-controller="NarrowItDownController as menu">
+     
+			  <input type="text" ng-model="menu.searchItemDesc" placeholder="Search Term" class="form-control">			  
+			  <button ng-click="menu.getData()">Narrow It Down For Me!</button>
+			  <h1 ng-show="menu.showMsg">Nothing Found!!!</h1>
+			  <found-items-list items="menu.menu_items" remove="menu.RemoveItem(index);"> </found-items-list>
+		</div> -->
+		
+		
+  </div>
+
+</body>
+</html>
